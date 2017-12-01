@@ -1,0 +1,61 @@
+﻿<div class="about spacer">
+    <div class="row">
+        <div class="col-sm-4 wowload fadeInRight">
+        </div>
+        <div class="col-sm-4 wowload fadeInRight">
+            <div class="login-box-body">
+                <!--<h4>Sign In</h4>
+                <form method="post">
+                    <div class="form-group has-feedback">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
+                            <input class="form-control" type="text" placeholder="User Name" ng-model="loginData.userName">
+                        </div>
+                        <br />
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </span>
+                            <input class="form-control" type="password" placeholder="Password" ng-model="loginData.password">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a class="btn btn-warning btn-block btn-flat" ng-click="login();">Sign In</a>
+                        </div>
+                    </div>
+                    <br />
+                    {{message}}-->
+
+                <form class="login loginform">
+                    <div class="login group">
+                        <input class="logininput" type="text" ng-model="loginData.userName"><span class="highlight"></span><span class="bar"></span>
+                        <label class="loginlabel">User Name</label>
+                    </div>
+                    <div class="login group">
+                        <input class="logininput" type="password" ng-model="loginData.password"><span class="highlight"></span><span class="bar"></span>
+                        <label class="loginlabel">Password</label>
+                    </div>
+                    <button type="button" class="loginbutton loginbuttonBlue" ng-click="login();">
+                        Login
+                        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                    </button>
+                </form>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="#">Forgot Password?  </a>|
+                    <a href="register.html">Unable To Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+

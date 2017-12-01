@@ -1,0 +1,225 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-4">
+            <div class="left_sidebar">
+                <div class="single_widget">
+                    <h2>Hot News</h2>
+                    <ul class="post_nav">
+                        <li class="odia-font" ng-repeat="hnews in hnewsDetail.HotNewsTitle">
+                            <figure class="effect-lily">
+                                <a href="pages/single_page.html"><img src="images/270x150x4.jpg" alt=""></a>
+                                <figcaption><a href="#/hotnewsdetail/{{hnews.HID}}">{{hnews.TITLE}}</a></figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+                <div class="single_widget">
+                    <h2>Popular Post</h2>
+                    <ul class="ppost_nav wow fadeInDown">
+                        <li>
+                            <div class="media">
+                                <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                <div class="media-body">
+                                    <a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                <div class="media-body">
+                                    <a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                <div class="media-body">
+                                    <a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                <div class="media-body">
+                                    <a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-8">
+            <div class="middle_content">
+                <h2>What’s Hot</h2>
+                {{detailNews}}
+                <div class="single_page_area" ng-show="hnews==true">
+                    <ul class="featured_nav">
+                        <li class="wow fadeInDown">
+                            <figure class="featured_img"><a href="#"><img src="images/550x400.jpg" alt=""></a></figure>
+                            <h2 class="article_titile">
+                                {{detailNews[0].htitle}}
+                            </h2>
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{detailNews[0].newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+                            <p class="odia-font">{{detailNews[0].hotnews}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <nav>
+                    <ul class="pagination">
+                        <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="right_sidebar">
+                <div class="single_widget">
+                    <h2>Popular News</h2>
+                    <ul class="nav nav-tabs custom-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">Recent Post</a></li>
+                        <li role="presentation" class=""><a href="#recentComent" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">Recent Comment</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="mostPopular">
+                            <ul class="ppost_nav wow fadeInDown">
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="recentComent">
+                            <ul class="ppost_nav wow fadeInDown">
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="pages/single_page.html">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="pages/single_page.html"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img src="images/70x70.jpg" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#">Aliquam malesuada diam eget turpis varius</a></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_widget" ng-hide="true">
+                    <h2>Categories</h2>
+                    <ul>
+                        <li class="cat-item"><a href="#">Technology</a></li>
+                        <li class="cat-item"><a href="#">Games</a></li>
+                        <li class="cat-item"><a href="#">Business</a></li>
+                        <li class="cat-item"><a href="#">Gallery</a></li>
+                        <li class="cat-item"><a href="#">Slider</a></li>
+                        <li class="cat-item"><a href="#">Life &amp; Style</a></li>
+                        <li class="cat-item"><a href="#">Sports</a></li>
+                    </ul>
+                </div>
+                <div class="single_widget" ng-hide="true">
+                    <h2>Category Archive</h2>
+                    <select class="catgArchive">
+                        <option>Select Category</option>
+                        <option>Life styles</option>
+                        <option>Sports</option>
+                        <option>Technology</option>
+                        <option>Treads</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

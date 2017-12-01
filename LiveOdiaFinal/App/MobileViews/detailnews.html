@@ -1,0 +1,449 @@
+﻿
+<header id="header" ng-show="mobile==true">
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                     <a href="#">
+                		<h2>ଲାଇଭ୍ ଓଡ଼ିଆ</h2>
+           			 </a>
+                </li>
+                <li><a href="home" ng-click="onHomeClick();">ହୋମ ପେଜ୍</a></li>
+                <li><a href="about">ଆମ ବିଷୟରେ</a></li>
+                <li><a href="#">ଯୋଗାଯୋଗ</a></li>
+                <li><a href="#">ବିଜ୍ଞାପନ</a></li>
+                <li class="btn-nav"><h2>Hot News</h2></li>
+                <li class="odia-font" ng-repeat="hnews in hnewsTitle">
+                    <figcaption><a ng-click="getHotNewsSummary(hnews.ndid)">{{hnews.htitle}}</a></figcaption>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+			 <a href="#">
+                <h2>ଲାଇଭ୍ ଓଡ଼ିଆ</h2>
+            </a>
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+</header>
+
+<div id="mobile" class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="topadd_bar">
+                <a href="#">
+                    <img src="../../images/addr_728x90_V11.jpg" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-8" id="middle_content">
+            <div class="middle_content" ng-show="hnews!=false">
+                <h2>ସମ୍ପୂର୍ଣ୍ଣ ଖବର</h2>
+                <ul class="featured_nav">
+                    <li class="wow fadeInDown" ng-repeat="news in  hotnews | orderBy:'-hnid'">
+                        <div ng-show="news.himage!='Default'">
+							 
+                            <figure class="featured_img"><a href="#"><img ng-src="../UploadedImage/{{news.himage}}" alt=""></a></figure>
+                            <article class="featured_article">
+                               <h2 class="article_titile"><a  ng-click="getHotNewsOnClick(news.hnid)">{{news.htitle}}</a></h2>
+                                <h4 ng-show="news.hsub!=null">{{news.hsub}}</h4>
+                            </article>
+                        </div>
+                        <div ng-show="news.himage=='Default'">
+                            <article class="featured_article1">
+                                <h2 class="article_titile"><a class="odia-font" ng-click="getHotNewsOnClick(news.hnid)">{{news.htitle}}</a></h2>
+                                <h4 ng-show="news.hsub!=null">{{news.hsub}}</h4>
+                            </article>
+                        </div>
+						<a href="home" class="btn default-btn" ng-click="onHomeClick();">ହୋମ ପେଜ୍</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="middle_content" ng-show="hnewssummary!=false">
+              <h2 class="header-font header-font">ସମ୍ପୂର୍ଣ୍ଣ ଖବର</h2>
+                <ul class="featured_nav">
+                    <li class="wow fadeInDown">
+                        <div ng-show="hnewsDetail.himage!='Default'">
+							 <h2 class="article_titile">
+                                {{hnewsDetail.htitle}}
+                            </h2>
+                            <figure class="featured_img"><a href="#"><img ng-src="../UploadedImage/{{hnewsDetail.himage}}" alt=""></a></figure>
+                           
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{hnewsDetail.newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+                            <p class="odia-font">{{hnewsDetail.hotnews}}</p>
+                        </div>
+                        <div ng-show="hnewsDetail.himage=='Default'">
+                            <h2 class="article_titile1">
+                                {{hnewsDetail.htitle}}
+                            </h2>
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{hnewsDetail.newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+                            <p class="odia-font">{{hnewsDetail.hotnews}}</p>
+                        </div>
+						<a href="home" class="btn default-btn" ng-click="onHomeClick();">ହୋମ ପେଜ୍</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="middle_content" ng-show="tpnews!=false">
+               <h2 class="header-font header-font">ସମ୍ପୂର୍ଣ୍ଣ ଖବର</h2>
+                <ul class="featured_nav">
+                    <li class="wow fadeInDown" ng-repeat="news in tnews | orderBy:'-tnid'">
+                        <div ng-show="news.timage!='Default'">
+							<h2 class="article_titile">{{news.ttitle}}</h2>
+                            <figure class="featured_img"><a href="#"><img ng-src="../UploadedImage/{{news.timage}}" alt=""></a></figure>
+                            
+                            
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i> {{news.newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+							<h4 ng-style="CustomStyle" class="newstory-heading">{{news.tsub}}</h4>
+                            <p class="odia-font">{{news.topnews}}</p>
+                        </div>
+                        <div ng-show="news.timage=='Default'">
+                            <h2 class="article_titile1 odia-font">{{news.ttitle}}</h2>
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i> {{news.newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+							<h4 ng-style="CustomStyle" class="newstory-heading">{{news.tsub}}</h4>
+                            <p class="odia-font">{{news.topnews}}</p>
+                        </div>
+						<a href="home" class="btn default-btn" ng-click="onHomeClick();">ହୋମ ପେଜ୍</a>
+                    </li>
+                </ul>
+            </div>
+			 <div class="middle_content" ng-show="ipnews!=false">
+                <h2 class="header-font">ସମ୍ପୂର୍ଣ୍ଣ ଖବର</h2>
+                <ul class="featured_nav">
+                    <li class="wow fadeInDown">
+                        <div ng-show="imnews[0].iimage!='Default'">
+							<h2 class="article_titile">
+                                {{imnews[0].ititle}}
+                            </h2>
+                            <figure class="featured_img"><a href="#"><img ng-src="../UploadedImage/{{imnews[0].iimage}}" alt=""></a></figure>
+                            
+							
+                            <div class="post_commentbox"><a href="#"></a> <span><i class="fa fa-calendar"></i>{{imnews[0].newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+							<h4 class="impnews-heading" ng-show="imnews[0].isub!=null">{{imnews[0].isub}}</h4>
+                            <p class="odia-font">{{imnews[0].impnews}}</p>
+                        </div>
+                        <div ng-show="imnews[0].iimage=='Default'">
+                            <h2 class="article_titile1">
+                                {{imnews[0].ititle}}
+                            </h2>
+							
+                            <div class="post_commentbox"><a href="#"></a> <span><i class="fa fa-calendar"></i>{{imnews[0].newsdate}}</span> <a href="#"></a></div>
+							<h4 class="impnews-heading" ng-show="imnews[0].isub!=null">{{imnews[0].isub}}</h4>
+                            <p class="odia-font">{{imnews[0].impnews}}</p>
+                        </div>
+						<a href="home" class="btn default-btn" ng-click="onHomeClick();">ହୋମ ପେଜ୍</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="single_page_area" ng-show="nstory!=false">
+                <div class="middle_content">
+                    <h2 class="header-font header-font">ସମ୍ପୂର୍ଣ୍ଣ ଖବର</h2>
+                </div>
+                <ul class="featured_nav">
+                    <li class="wow fadeInDown">
+                        <div ng-show="detailNews[0].nimage!='Default'">
+							 <h2 class="article_titile">
+                                {{detailNews[0].ntitle}}
+                            </h2>
+                            <figure class="featured_img"><a href="#"><img ng-src="../UploadedImage/{{detailNews[0].nimage}}" alt=""></a></figure>
+                           
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{detailNews[0].newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+                            <h4 class="newstory-heading">{{detailNews[0].nsub}}</h4>
+                            <p class="odia-font">{{detailNews[0].newstory}}</p>
+                        </div>
+                        <div ng-show="detailNews[0].nimage=='Default'">
+                            <h2 class="article_titile1">
+                                {{detailNews[0].ntitle}}
+                            </h2>
+                            <div class="post_commentbox"><a href="#"><i class="fa fa-user"></i> Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{detailNews[0].newsdate}}</span> <a href="#"><i class="fa fa-tags"></i> Technology</a></div>
+                            <h4>{{detailNews[0].nsub}}</h4>
+                            <p class="odia-font">{{detailNews[0].newstory}}</p>
+                        </div>
+						<a href="home" class="btn default-btn" ng-click="onHomeClick();">ହୋମ ପେଜ୍</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social_link">
+                <ul class="social_nav">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div>
+            <!--<div class="related_post">
+                <h2>Related Post <i class="fa fa-thumbs-o-up"></i></h2>
+            </div>-->
+        </div>
+        <nav class="nav-growpop" ng-show="hnewssummary!=false">
+            <a class="prev" href="#" ng-click="getPreviousHotNews(pHNews.hnid)" ng-show="pHNews!=undefind">
+                <span class="icon-wrap"><i class="fa fa-angle-left"></i></span>
+                <div>
+                    <span>Previous News</span>
+                    <h3>{{pHNews.htitle}}</h3>
+                    <img ng-show="pHNews.himage!='Default'" ng-src="../UploadedImage/{{pHNews.himage}}" width="100" height="100" alt="" />
+                </div>
+            </a>
+            <a class="next" href="#" ng-click="getNextHotNews(nHNews.hnid)" ng-show="nHNews!=undefind">
+                <span class="icon-wrap"><i class="fa fa-angle-right"></i></svg></span>
+                <div>
+                    <span>Next Story</span>
+                    <h3>{{nHNews.htitle}}</h3>
+                    <img ng-show="nHNews!='Default'" ng-src="../UploadedImage/{{nHNews.himage}}" height="100" width="100" alt="" />
+                </div>
+            </a>
+        </nav>
+        <nav class="nav-growpop" ng-show="nstory!=false">
+            <a class="prev" href="#" ng-click="getPreviousNews(pNews.nsid)" ng-show="pNews!=undefind">
+                <span class="icon-wrap"><i class="fa fa-angle-left"></i></span>
+                <div>
+                    <span>Previous News</span>
+                    <h3>{{pNews.ntitle}}</h3>
+                    <img ng-show="pNews!='Default'" ng-src="../UploadedImage/{{pNews.nimage}}" width="100" height="100" alt="" />
+                </div>
+            </a>
+            <a class="next" href="#" ng-click="getNextNews(nNews.nsid)" ng-show="nNews!=undefind">
+                <span class="icon-wrap"><i class="fa fa-angle-right"></i></svg></span>
+                <div>
+                    <span>Next Story</span>
+                    <h3>{{nNews.ntitle}}</h3>
+                    <img ng-show="nNews!='Default'" ng-src="../UploadedImage/{{nNews.nimage}}" height="100" width="100" alt="" />
+                </div>
+            </a>
+        </nav>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="right_sidebar">
+                <div class="single_widget">
+                        <h2 class="header-font">ଅଧିକ ଖବର</h2>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="mostPopular">
+                            <ul class="ppost_nav wow fadeInDown">
+                                <li ng-repeat="news in morenews  |  orderBy :'-inid' | limitTo: 15">
+                                    <div class="media">
+                                        <a class="media-left" href="#"><img ng-show="news.iimage!='Default'" ng-src="../UploadedImage/{{news.iimage}}" width="100" height="100" alt=""></a>
+                                        <div class="media-body"><a class="catg_title" href="#" ng-click="GetImpNewsById(news.inid,news.rid)"><b class="impnewsfont">{{news.ititle}}</b></a></div>
+                                        <p>{{news.impnews |limitTo: 55}} <strong>. . .</strong></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<div class="col-lg-3 col-md-3 col-sm-4">
+            <div class="left_sidebar">
+                <div class="single_widget">
+                    <h2 class="header-font">ଅନ୍ୟାନ୍ୟ ଖବର</h2>
+                    <ul class="post_nav">
+                        <li ng-repeat="hnews in hnewsTitle">
+                            <!--<a href="pages/single_page.html"><img src="images/270x150x4.jpg" alt=""></a>-->
+                            <h2 class="hotnews-summary"><a ng-click="getHotNewsSummary(hnews.ndid)">{{hnews.htitle}}</a></h2>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="mostPopular">
+                                    <ul class="ppost_nav wow fadeInDown">
+                                        <li ng-show="hnews.ndid===1" ng-repeat="news in hnewsData1 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p >{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                  
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li ng-show="hnews.ndid===2" ng-repeat="news in hnewsData2 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                  
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li ng-show="hnews.ndid===3" ng-repeat="news in hnewsData3 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li ng-show="hnews.ndid===4" ng-repeat="news in hnewsData4 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li ng-show="hnews.ndid===5" ng-repeat="news in hnewsData5 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li ng-show="hnews.ndid===6" ng-repeat="news in hnewsData6 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                  
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li ng-show="hnews.ndid===7" ng-repeat="news in hnewsData7 | orderBy :'-hnid' | limitTo : 4">
+                                            <div class="media">
+                                                <div ng-show="news.himage!='Default'">
+                                                    <div class="media-left" href="#"><img ng-src="../UploadedImage/{{news.himage}}" width="100" height="100" alt=""></div>
+
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                                <div ng-show="news.himage=='Default'">
+                                                    <div class="media-body">
+                                                        <a class="catg_title" href="detailhotnews/ids={{news.hnid}};rid={{news.rid}}">
+                                                            <b class="impnewsfont">{{news.htitle}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <!--<h4 ng-show="news.hsub!=null" style="color:{{news.mycolor}}">{{news.hsub}}</h4>-->
+                                                    <p>{{news.hotnews |limitTo: 55}}<strong>...</strong></p>
+                                                   
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,302 @@
+<section id="content">
+    <div class="container">
+		<!--<input class="form-control" ng-model="selected" uib-typeahead="country as country.ititle for country in countries | filter:{ititle:$viewValue}" typeahead-show-hint="true" typeahead-min-length="0" placeholder="Search here">
+        <div class="row">
+            <div class="col-lg-2"><h4>Update News Date</h4></div>
+            <div class="col-lg-4">
+                <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+            </div>
+            <div class="col-lg-2">
+                {{myDate | date:'dd-MM-yyyy'}}
+            </div>
+            <div class="col-lg-2">
+                <input type="button" value="Update News Date" ng-click="updateDate()" class="btn-sm btn-success" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>Delete All news</h4>
+            </div>
+            <div class="col-lg-1">
+                <input type="button" value="Delete" class="btn-sm btn-success" ng-click="DeleteAllNews();" />
+            </div>
+            <div class="col-lg-6">
+                <em>{{mesg}}</em>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>Download All news</h4>
+            </div>
+            <div class="col-lg-1">
+                <input type="button" value="Download News" class="btn-sm btn-success" ng-click="DownloadNews();" />
+
+            </div>
+            <div class="col-lg-6">
+                <em>{{mesg}}</em>
+            </div>
+        </div>-->
+		<h4>Reorder Important News</h4>
+		<div class="row">
+			<div class="col-lg-12" ng-repeat="news in pnews">
+				<div class="col-lg-6">
+					News Sumary:<label>{{news.ititle}}</label>
+				</div>
+				<div class="col-lg-6">
+					News Id:<label>{{news.inid}}</label>
+					News Priority<input type="text" ng-model="news.priority" />
+					 {{mesg}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<input type="button" ng-click="ReorderPriority()" value="Rest Priority"  class="btn btn-success pull-right"/>
+			</div>
+		</div>
+        <hr />
+        <h2>News Upload</h2>
+        <hr />
+        <ul class="nav nav-tabs">
+           <li ng-class="{active:isSelected(1) }"><a ng-click="selectTab(1)" href>ମୂଖ୍ୟ ଖବର</a></li>
+            <li ng-class="{active:isSelected(2)  }"><a ng-click="selectTab(2)" href>ଅନ୍ୟାନ୍ୟ ଖବର</a></li>
+            <li ng-class="{active:isSelected(3)  }"><a ng-click="selectTab(3)" href>ଚର୍ଚ୍ଚିତ ଖବର</a></li>
+            <!--<li ng-class="{active:isSelected(4)  }"><a ng-click="selectTab(4)" href>ଦୁନିଆ ଖବର</a></li>-->
+        </ul>
+        <div ng-show="isSelected(1)">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-6">
+                        <h2>ମୂଖ୍ୟ ଖବର</h2>
+                    </div>
+                    <div class="col-lg-2">Select Date</div>
+                    <div class="col-lg-4">
+                        <md-datepicker ng-model="impnewsDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-sm-12">
+                    <div class="contact_area wow fadeInLeftBig">
+                        <input class="form-control" type="text" placeholder="News Title" ng-model="impnews.title">
+						{{mesgInews}}
+                        <br />
+                        <input class="form-control" type="number" placeholder="Priorty" ng-model="impnews.priority">
+                        <input class="form-control" type="text" placeholder="News Subheading" ng-model="impnews.isub">
+ 						<div class="col-lg-2"><h5>Select Related</h5>:</div>
+                    	<div class="col-lg-2">
+                        <select class="form-control" name="userRole" id="userRole" ng-change="changeRelated();"
+                                ng-options="option.rnews for option in related track by option.rid"
+                                ng-model="relatednews"></select>
+                        Add Related <input class="form-control" type="text" placeholder="New Related" ng-model="relatedData">
+							<button type="submit" class="btn-sm btn-success" ng-click="AddNewRelated(relatedData)">Save Related</button>
+                    </div>
+						<input type="color" ng-model="myColor1" />{{myColor1}}
+                        <textarea class="form-control" cols="30" rows="10" placeholder="Hot News" ng-model="impnews.inewsTotal"></textarea>
+                        <form enctype="multipart/form-data" name="form1" ng-submit="submitImpNews()">
+                            <div class="col-lg-11">
+                                <input type="file" image-upload="myFile4" id="file4" name="file4" />
+                            </div>
+                            <div class="col-lg-1" ng-hide="loader.loading4==true">
+                                <input type="submit" value="Add Hotnews" class="btn-sm btn-success" />
+                            </div>
+                            <div class="col-lg-1" ng-show="loader.loading4==true">
+                                <button class="btn btn-success">
+                                    Uploading...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </button>
+                            </div>
+                            <span class="success">{{mesgInews}}</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="isSelected(2)">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="col-lg-6">
+                        <h2>ଅନ୍ୟାନ୍ୟ ଖବର</h2>
+                    </div>
+                    <div class="col-lg-2">Select Date</div>
+                    <div class="col-lg-4">
+                        <md-datepicker ng-model="hotnewsDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-sm-12">
+                    <div class="contact_area wow fadeInLeftBig">
+                        <div class="col-lg-2"><h5>Select Category</h5>:</div>
+                        <div class="col-lg-2">
+                            <select class="form-control" name="userRole" id="userRole" ng-change="changeOption();"
+                                    ng-options="option.htitle for option in hnewsTitle track by option.ndid"
+                                    ng-model="selectedOption"></select>
+                        </div>
+						<div class="col-lg-2"><h5>Select Related</h5>:</div>
+                    	<div class="col-lg-2">
+                        <select class="form-control" name="userRole" id="userRole" ng-change="changeRelated();"
+                                ng-options="option.rnews for option in related track by option.rid"
+                                ng-model="relatednews"></select>  Add Related <input class="form-control" type="text" placeholder="New Related" ng-model="relatedData"><button type="submit" class="btn-sm btn-success" ng-click="AddNewRelated(relatedData)">Save Related</button>
+                    </div>
+                        <div class="col-lg-3"><h5>Add New Category</h5>:</div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" placeholder="Category Name" ng-model="hotnews.cname">
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn-sm btn-success" ng-click="AddNewCategory(hotnews.cname)">Save New Category</button>
+                        </div>
+                        <input class="form-control" type="text" placeholder="News Title" ng-model="hotnews.title">
+						{{mesgHnews}}
+                        <br />
+                        <input class="form-control" type="text" placeholder="News Subheading" ng-model="hotnews.hsub">
+						<br/>
+						<input type="color" ng-model="myColor2" />{{myColor2}}
+						<br/>
+                        <textarea class="form-control" cols="30" rows="10" placeholder="Hot News" ng-model="hotnews.hnewsTotal"></textarea>
+                        <form enctype="multipart/form-data" name="form1" ng-submit="submitHotNews()">
+                            <div class="col-lg-11">
+                                <input type="file" image-upload="myFile1" id="file1" />
+                            </div>
+                            <div class="col-lg-1" ng-hide="loader.loading1==true">
+                                <input type="submit" value="Add Hotnews" class="btn-sm btn-success" />
+                            </div>
+                            <div class="col-lg-1" ng-show="loader.loading1==true">
+                                <button class="btn btn-success">
+                                    Uploading...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </button>
+                            </div>
+                            <span class="success">{{mesgHnews}}</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="isSelected(3)">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+
+                    <div class="col-lg-6">
+                        <h2>ଚର୍ଚ୍ଚିତ ଖବର</h2>
+                    </div>
+                    <div class="col-lg-2">Select Date</div>
+                    <div class="col-lg-4">
+                        <md-datepicker ng-model="newstoryDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-sm-12">
+                    <div class="contact_area wow fadeInLeftBig">
+                        <input class="form-control" type="text" placeholder="News Title" ng-model="Newstory.ntitle">
+						{{mesgNnews}}
+                        <br />
+                        <input class="form-control" type="text" placeholder="News Subheading" ng-model="Newstory.nsub">
+						<br/>
+						 <div class="col-lg-2"><h5>Select Related</h5>:</div>
+                    <div class="col-lg-2">
+                        <select class="form-control" name="userRole" id="userRole" ng-change="changeRelated();"
+                                ng-options="option.rnews for option in related track by option.rid"
+                                ng-model="relatednews"></select>
+                        Add Related <input class="form-control" type="text" placeholder="New Related" ng-model="relatedData"><button type="submit" class="btn-sm btn-success" ng-click="AddNewRelated(relatedData)">Save Related</button>
+                    </div>
+						<input type="color" ng-model="myColor3" />{{myColor3}}
+						<br/>
+                        <textarea class="form-control" cols="30" rows="10" placeholder="Hot News" ng-model="Newstory.newstory"></textarea>
+                        <form enctype="multipart/form-data" name="form1" ng-submit="submitNewstory()">
+                            <div class="col-lg-11">
+                                <input type="file" image-upload="myFile2" id="file2" />
+                            </div>
+                            <div class="col-lg-1" ng-hide="loader.loading2==true">
+                                <input type="submit" value="Add Hotnews" class="btn-sm btn-success" />
+                            </div>
+                            <div class="col-lg-1" ng-show="loader.loading2==true">
+                                <button class="btn btn-success">
+                                    Uploading...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </button>
+                            </div>
+                            <span class="success">{{mesgNnews}}</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="isSelected(4)">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                    <div class="col-lg-6">
+                        <h2>ଦୁନିଆ ଖବର</h2>
+                    </div>
+                    <div class="col-lg-2">Select Date</div>
+                    <div class="col-lg-4">
+                        <md-datepicker ng-model="topnewsDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-sm-12">
+                    <div class="contact_area wow fadeInLeftBig">
+                        <input class="form-control" type="text" placeholder="News Title" ng-model="Topnews.ttitle">
+						{{mesgTnews}}
+                        <br />
+                        <input class="form-control" type="text" placeholder="News Title" ng-model="Topnews.tsub">
+						<br/>
+						 <div class="col-lg-2">
+                        <select class="form-control" name="userRole" id="userRole" ng-change="changeRelated();"
+                                ng-options="option.rnews for option in related track by option.rid"
+                                ng-model="relatednews"></select>
+                        Add Related <input class="form-control" type="text" placeholder="New Related" ng-model="relatedData"><button type="submit" class="btn-sm btn-success" ng-click="AddNewRelated(relatedData)">Save Related</button>
+                    </div>
+						 <input type="color" ng-model="myColor4" />{{myColor4}}
+						<br/>
+                        <textarea class="form-control" cols="30" rows="10" placeholder="Hot News" ng-model="Topnews.topnews"></textarea>
+                        <form enctype="multipart/form-data" name="form1" ng-submit="submitTopNews()">
+                            <div class="col-lg-11">
+                                <input type="file" image-upload="myFile3" id="file3" />
+                            </div>
+                            <div class="col-lg-1" ng-hide="loader.loading3==true">
+                                <input type="submit" value="Add Hotnews" class="btn-sm btn-success" />
+                            </div>
+                            <div class="col-lg-1" ng-show="loader.loading3==true">
+                                <button class="btn btn-success">
+                                    Uploading...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </button>
+                            </div>
+                            <span class="success">{{mesgTnews}}</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--<div class="row">
+    <div class="col-md-12">
+        <div class="col-lg-2">
+            Title:<input type="text" name="title" ng-model="Newstory.ntitle" />
+        </div>
+        <div class="col-lg-6">
+            Detail News:<textarea name="hotNews" ></textarea>
+        </div>
+        <div class="col-lg-6">
+            <form enctype="multipart/form-data" name="form1" >
+                <div class="col-lg-4">
+                    <input type="file" image-upload="myFile" />
+                </div>
+                <div class="col-lg-2">
+                    <input type="submit" value="Add Newstory" class="btn-sm btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->

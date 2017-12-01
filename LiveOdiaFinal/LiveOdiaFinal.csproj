@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B0C4185-7DEE-4783-8BC4-2C712E0522D9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LiveOdiaFinal</RootNamespace>
+    <AssemblyName>LiveOdiaFinal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.5.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.5.5\lib\net45\ImageProcessor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=3.1.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\My Project\work\customWebApps\GayaCustom\GayaCustom\bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="liveodiaAutoUpdate">
+      <HintPath>..\liveodiaAutoUpdate\bin\Debug\liveodiaAutoUpdate.exe</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\live\bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\app.js" />
+    <Content Include="App\Controllers\aboutController.js" />
+    <Content Include="App\Controllers\adminController.js" />
+    <Content Include="App\Controllers\detailHotnewsController.js" />
+    <Content Include="App\Controllers\detailnewsController.js" />
+    <Content Include="App\Controllers\detailTopNewsController.js" />
+    <Content Include="App\Controllers\homeController.js" />
+    <Content Include="App\Controllers\hotnewsController.js" />
+    <Content Include="App\Controllers\indexController.js" />
+    <Content Include="App\Controllers\loginController.js" />
+    <Content Include="App\Directives\error.html" />
+    <Content Include="App\Directives\image-top-left.html" />
+    <Content Include="App\Directives\image-top-right.html" />
+    <Content Include="App\Directives\imageDir.html" />
+    <Content Include="App\Directives\imageDirective.js" />
+    <Content Include="App\Directives\imageShowDirective.js" />
+    <Content Include="App\Directives\imageUpload.js" />
+    <Content Include="App\Directives\myTickerDirective.js" />
+    <Content Include="App\MobileViews\detailnews.html" />
+    <Content Include="App\MobileViews\home.html" />
+    <Content Include="App\MobileViews\hotdetailnews.html" />
+    <Content Include="App\MobileViews\hotnews.html" />
+    <Content Include="App\Modules\SocialShare.js" />
+    <Content Include="App\Providers\newsProvider.js" />
+    <Content Include="App\Services\adminServiceFactory.js" />
+    <Content Include="App\Services\detailnewsServiceFactory.js" />
+    <Content Include="App\Services\detailTopnewsService.js" />
+    <Content Include="App\Services\editNewsServce.js" />
+    <Content Include="App\Services\homeServiceFactory.js" />
+    <Content Include="App\Services\HotnewsServiceFactory.js" />
+    <Content Include="App\Services\imageUploadService.js" />
+    <Content Include="App\Services\loginServiceFactory.js" />
+    <Content Include="App\Services\sharedService.js" />
+    <Content Include="App\Views\about.html" />
+    <Content Include="App\Views\admin.html" />
+    <Content Include="App\Views\detailnews.html" />
+    <Content Include="App\Views\detailtopnews.html" />
+    <Content Include="App\Views\home.html" />
+    <Content Include="App\Views\hotdetailnews.html" />
+    <Content Include="App\Views\hotnews.html" />
+    <Content Include="App\Views\login.html" />
+    <Content Include="App_Data\publish.htm" />
+    <Content Include="App_Data\setup.exe" />
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\images\sidebar-bullet.png" />
+    <Content Include="assets\css\images\slider_next.png" />
+    <Content Include="assets\css\images\slider_prev.png" />
+    <Content Include="assets\css\images\status.gif" />
+    <Content Include="assets\css\slick.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\theme.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\html5shiv.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\respond.min.js" />
+    <Content Include="assets\js\slick.min.js" />
+    <Content Include="assets\js\wow.min.js" />
+    <Content Include="bin\LiveOdiaFinal.dll" />
+    <Content Include="bin\LiveOdiaFinal.pdb" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\MySql.Data.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\mobileview.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="font\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="gruntfile.js" />
+    <Content Include="images\270x150x4.jpg" />
+    <Content Include="images\300x250x1.jpg" />
+    <Content Include="images\300x250x2.jpg" />
+    <Content Include="images\300x250x3.jpg" />
+    <Content Include="images\300x250x4.jpg" />
+    <Content Include="images\300x250x5.jpg" />
+    <Content Include="images\300x250x6.jpg" />
+    <Content Include="images\550x400.jpg" />
+    <Content Include="images\70x70.jpg" />
+    <Content Include="images\addr_728x90_V11.jpg" />
+    <Content Include="images\error-img.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="index.html" />
+    <Content Include="js\angular-route.js" />
+    <Content Include="js\angular-route.min.js" />
+    <Content Include="js\angular.js" />
+    <Content Include="js\angular.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\nice-scroll.js" />
+    <Content Include="js\npm.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="UploadedImage\13_10_2016_12_10Koala.jpg" />
+    <Content Include="UploadedImage\13_10_2016_14_10_23Tulips.jpg" />
+    <Content Include="UploadedImage\13_10_2016_14_10_31Penguins.jpg" />
+    <Content Include="UploadedImage\13_10_2016_14_10_54Penguins.jpg" />
+    <Content Include="UploadedImage\13_10_2016_14_10_58Tulips.jpg" />
+    <Content Include="UploadedImage\13_10_2016_14_10_59Tulips.jpg" />
+    <Content Include="UploadedImage\13_10_2016_15_10_25Hydrangeas.jpg" />
+    <Content Include="UploadedImage\13_10_2016_15_10_48Lighthouse.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_00Penguins.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_12Desert.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_13Desert.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_16Lighthouse.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_30Koala.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_35Jellyfish.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_45Jellyfish.jpg" />
+    <Content Include="UploadedImage\13_10_2016_17_10_58Hydrangeas.jpg" />
+    <Content Include="UploadedImage\Chrysanthemum.jpg" />
+    <Content Include="UploadedImage\Desert.jpg" />
+    <Content Include="UploadedImage\Hydrangeas.jpg" />
+    <Content Include="UploadedImage\Jellyfish.jpg" />
+    <Content Include="UploadedImage\Koala.jpg" />
+    <Content Include="UploadedImage\Lighthouse.jpg" />
+    <Content Include="UploadedImage\Penguins.jpg" />
+    <Content Include="UploadedImage\Tulips.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="autoUpdate.cs" />
+    <Compile Include="Controllers\admin2Controller.cs" />
+    <Compile Include="Controllers\DownloadNewsController.cs" />
+    <Compile Include="Controllers\EditNewsController.cs" />
+    <Compile Include="Controllers\FullNewsController.cs" />
+    <Compile Include="Controllers\HnewsSummaryController.cs" />
+    <Compile Include="Controllers\homeController.cs" />
+    <Compile Include="Controllers\HotNewsController.cs" />
+    <Compile Include="Controllers\ImpNewsController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NewStoryController.cs" />
+    <Compile Include="Controllers\RelatedNewsController.cs" />
+    <Compile Include="dbutility.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="JobScheduler.cs" />
+    <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\HotNewsModel.cs" />
+    <Compile Include="Models\ImpNews.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Related.cs" />
+    <Compile Include="Models\TutorialModel.cs" />
+    <Compile Include="Models\UploadDataModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\fonts\allerta-400.woff" />
+    <Content Include="assets\fonts\arvo-400.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="font\aparaj.ttf" />
+    <Content Include="font\glyphicons-halflings-regular.eot" />
+    <Content Include="font\glyphicons-halflings-regular.ttf" />
+    <Content Include="font\glyphicons-halflings-regular.woff" />
+    <Content Include="font\glyphicons-halflings-regular.woff2" />
+    <Content Include="UploadedImage\BodyPart_1d5fd5b9-026a-4c02-94a1-2b3d56445e9f" />
+    <Content Include="UploadedImage\BodyPart_1e25639b-fc7f-4257-b25c-0fff38426a53" />
+    <Content Include="UploadedImage\BodyPart_1ef5079a-c4e4-4512-88f2-06fd1ec5c404" />
+    <Content Include="UploadedImage\BodyPart_3a0f86ea-6d83-4186-95c5-ae991a3352d2" />
+    <Content Include="UploadedImage\BodyPart_3d69f34e-82f8-4bcf-9a49-96b36444b6ff" />
+    <Content Include="UploadedImage\BodyPart_486d8e03-1d47-4557-8a0d-1645be73c173" />
+    <Content Include="UploadedImage\BodyPart_4c527abb-f84d-4491-b25d-1e4194d7ae14" />
+    <Content Include="UploadedImage\BodyPart_540a1747-79f9-4437-9767-0232ff5453e3" />
+    <Content Include="UploadedImage\BodyPart_72e5f5f8-6651-46f5-acba-43a24c2a583c" />
+    <Content Include="UploadedImage\BodyPart_7521dcae-063e-40c7-9feb-d7fdd23db137" />
+    <Content Include="UploadedImage\BodyPart_8b9ef6c4-4a0d-44d6-9053-fe221475c4fd" />
+    <Content Include="UploadedImage\BodyPart_8be07540-09ce-4d3f-a820-975d06796a26" />
+    <Content Include="UploadedImage\BodyPart_8d518882-5921-4931-9fc2-2e67cb95574c" />
+    <Content Include="UploadedImage\BodyPart_923e483c-5b7d-497e-82ba-5ee8afbfe39a" />
+    <Content Include="UploadedImage\BodyPart_996417b5-110c-4704-ad8b-31889925cd08" />
+    <Content Include="UploadedImage\BodyPart_a7e4ed85-4d25-46b7-b20f-9e96bcf6b595" />
+    <Content Include="UploadedImage\BodyPart_ac1a5b80-49cd-448c-9176-c5176a8eb8d5" />
+    <Content Include="UploadedImage\BodyPart_ad1fcf5a-d747-439b-959a-d934d3867afe" />
+    <Content Include="UploadedImage\BodyPart_b07f25a6-ddca-4fff-ae7e-c247cbe7fe5b" />
+    <Content Include="UploadedImage\BodyPart_b370c9d7-75c6-401c-94a0-3fca50177d8a" />
+    <Content Include="UploadedImage\BodyPart_ed7daf3c-4c20-451c-bb66-8706fe610f54" />
+    <Content Include="UploadedImage\BodyPart_f433e9a4-7887-44ec-ad0b-f615b66d7da0" />
+    <Content Include="UploadedImage\BodyPart_f7eb4c9e-2e12-43e5-adf7-ec9254e02729" />
+    <Content Include="UploadedImage\BodyPart_fc6d54e3-d19c-4bb7-b2d4-327772bd8aec" />
+    <Content Include="bin\ApplicationInsights.config" />
+    <Content Include="bin\LiveOdiaFinal.dll.config" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="package.json" />
+    <Content Include="App_Data\liveodiaAutoUpdate.application" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Application Files\" />
+    <Folder Include="backupFiles\" />
+    <Folder Include="dist\min\" />
+    <Folder Include="NewsPdf\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>19471</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19471/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
